@@ -1,8 +1,7 @@
 import { PomodoroTimer } from "../components/pomodoroTimer";
 import { Task } from "../App";
 import { Clock, PlayCircle } from "lucide-react";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+
 
 interface TimerPageProps {
   currentTask?: Task;
@@ -19,7 +18,6 @@ export default function TimerPages({
 }: TimerPageProps) {
   return (
     <>
-      <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Timer Section */}
@@ -113,7 +111,6 @@ export default function TimerPages({
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

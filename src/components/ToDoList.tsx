@@ -20,7 +20,9 @@ export function TodoList({ tasks, onAddTask, onUpdateTask, onDeleteTask, onStart
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    duration: 25
+    duration: 0,
+    duration_break: 0,
+    repetition:0
   });
 
   const handleSubmit = () => {
@@ -31,7 +33,7 @@ export function TodoList({ tasks, onAddTask, onUpdateTask, onDeleteTask, onStart
       } else {
         onAddTask({ ...formData, status: 'pending' });
       }
-      setFormData({ title: '', description: '', duration: 25 });
+      setFormData({ title: '', description: '', duration: 0, duration_break:0, repetition:0 });
       setIsAdding(false);
     }
   };
@@ -41,7 +43,9 @@ export function TodoList({ tasks, onAddTask, onUpdateTask, onDeleteTask, onStart
     setFormData({
       title: task.title,
       description: task.description,
-      duration: task.duration
+      duration: task.duration,
+      duration_break: task.duration_break,
+      repetition: task.repetition
     });
     setIsAdding(true);
   };
@@ -49,7 +53,7 @@ export function TodoList({ tasks, onAddTask, onUpdateTask, onDeleteTask, onStart
   const handleCancel = () => {
     setIsAdding(false);
     setEditingId(null);
-    setFormData({ title: '', description: '', duration: 25 });
+    setFormData({ title: '', description: '', duration: 0, duration_break: 0, repetition:0});
   };
 
   return (
@@ -92,6 +96,24 @@ export function TodoList({ tasks, onAddTask, onUpdateTask, onDeleteTask, onStart
                 type="number"
                 value={formData.duration}
                 onChange={(e) => setFormData({ ...formData, duration: parseInt(e.target.value) || 25 })}
+                className="bg-white/10 border-white/20 text-white w-24 rounded-xl"
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <label className="text-white/70 text-sm">Duration break(minutes):</label>
+              <Input
+                type="number"
+                value={formData.duration_break}
+                onChange={(e) => setFormData({ ...formData, duration_break: parseInt(e.target.value) || 25 })}
+                className="bg-white/10 border-white/20 text-white w-24 rounded-xl"
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <label className="text-white/70 text-sm">How much repetition:</label>
+              <Input
+                type="number"
+                value={formData.repetition}
+                onChange={(e) => setFormData({ ...formData, repetition: parseInt(e.target.value) || 25 })}
                 className="bg-white/10 border-white/20 text-white w-24 rounded-xl"
               />
             </div>

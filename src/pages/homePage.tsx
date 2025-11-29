@@ -1,12 +1,9 @@
-import Navbar from "../components/navbar";
 import { Timer, ListChecks, TrendingUp, Zap, Play } from "lucide-react";
-import Footer from "../components/footer";
 import { Link } from "react-router-dom";
 
 const homePage = () => {
   return (
     <>
-      <Navbar />
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-20 md:py-32">
@@ -202,7 +199,6 @@ const homePage = () => {
           </div>
         </section>
       </div>
-      <Footer />
     </>
   );
 };

@@ -1,10 +1,9 @@
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-
 import { TodoList } from "../components/ToDoList";
 import { Task } from "../App";
 import { ListTodo, CheckCircle2, Clock, Calendar } from "lucide-react";
 import { useState } from "react";
+
+
 
 interface TasksPageProps {
   tasks: Task[];
@@ -27,6 +26,7 @@ export default function TasksPage({
     "all"
   );
 
+  
   const filteredTasks = tasks.filter((task) => {
     if (filter === "completed") return task.status === "completed";
     if (filter === "today") return task.status !== "completed";
@@ -42,7 +42,6 @@ export default function TasksPage({
 
   return (
     <>
-      <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Sidebar - Categories */}
@@ -167,7 +166,6 @@ export default function TasksPage({
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

@@ -13,8 +13,6 @@ import {
   LineChart,
   Line,
 } from "recharts";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 
 export default function StatisticsPage({
   tasks = [],
@@ -48,7 +46,6 @@ export default function StatisticsPage({
 
   return (
     <>
-      <Navbar />
       <div className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="mb-8">
@@ -313,7 +310,6 @@ export default function StatisticsPage({
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
